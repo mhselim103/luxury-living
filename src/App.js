@@ -4,6 +4,7 @@ import Hero from "./Pages/Home/Hero/Hero";
 import Projects from "./Pages/Home/Projects/Projects";
 import Service from "./Pages/Home/Service/Service";
 import Testimonial from "./Pages/Home/Testimonial/Testimonial";
+import Footer from "./Pages/Shared/Footer/Footer";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
 
 function App() {
@@ -22,6 +23,7 @@ https://i.ibb.co/MSqKvY7/hero-section.png */
       <Service />
       <Testimonial />
       <Contact />
+      <Footer />
     </div>
   );
 }

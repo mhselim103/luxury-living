@@ -25,7 +25,7 @@ const Contact = () => {
     reset();
   };
   return (
-    <div className="contact-container" id="contact">
+    <div className="contact-container my-8" id="contact">
       <div className="">
         <div className="flex flex-col justify-center items-center my-6 text-center">
           <span className="text-[#251D58]">Contact</span>

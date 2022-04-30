@@ -1,13 +1,7 @@
 .contact-container {
   margin-top: 1rem;
   padding-top: 3rem;
-  /* background: #e5e5e5; */
-  /* color: white; */
   overflow: hidden;
-}
-.contact {
-  display: flex;
-  align-items: center;
 }
 
 form {
