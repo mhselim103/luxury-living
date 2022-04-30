@@ -21,7 +21,9 @@ const Navigation = () => {
       <div className=" hidden sm:flex justify-between gap-8">
         {navLinks.map((link) => (
           <div className="">
-            <span>{link.name}</span>
+            <span className="cursor-pointer hover:text-blue-800 font-semibold">
+              {link.name}
+            </span>
           </div>
         ))}
       </div>

@@ -41,17 +41,20 @@ const Contact = () => {
               {...register("name")}
               className="user"
               placeholder="Name"
+              required
             />
             <input
               type="email"
               {...register("email")}
               className="user"
               placeholder="Email"
+              required
             />
             <textarea
               {...register("message")}
               className="user"
               placeholder="Message"
+              required
             />
             <button className="btn flex items-center gap-3">
               <span>Send</span> <SiMinutemailer />
