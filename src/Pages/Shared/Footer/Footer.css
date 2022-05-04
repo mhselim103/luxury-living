@@ -1,7 +1,8 @@
 .social-icons > * {
   cursor: pointer;
 }
-p {
+.footer > p {
   color: #dedfe3;
   font-size: 0.875rem;
+  cursor: pointer;
 }

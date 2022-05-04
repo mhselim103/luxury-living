@@ -19,7 +19,7 @@ const Footer = () => {
         </span>
       </div>
       <div className="grid grid-cols-2 ">
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start gap-1 footer">
           <h1 className="mb-2">Company</h1>
           <p>About</p>
           <p>Projects</p>
@@ -27,7 +27,7 @@ const Footer = () => {
           <p>Terms Condition</p>
           <p>Listing Submit</p>
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start gap-1 footer">
           <h1 className="mb-2">Quick Links</h1>
           <p>Rental</p>
           <p>Scale</p>

@@ -3,32 +3,50 @@ import { Menu } from "@headlessui/react";
 import { MdMenu } from "react-icons/md";
 // import { AiOutlineCloseCircle } from "react-icons/ai";
 import logo from "../../../Icon/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const navLinks = [
-  { name: "Home", link: "Home" },
-  { name: "About Us", link: "Home" },
-  { name: "Projects", link: "Home" },
-  { name: "Contact Us", link: "Home" },
+  { name: "Home", link: "/" },
+  { name: "Projects", link: "/projects" },
+  { name: "Contact Us", link: "/contact" },
+  { name: "Services", link: "/services" },
 ];
 const Navigation = () => {
   // const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
+  const { user, logOut } = useAuth();
   return (
     <div className=" h-[10vh] mx-8 sm:mx-0 relative top-1 flex justify-between  sm:justify-around items-center bg-[#F6F6F6]">
       <div>
         <img className="w-20 sm:w-28" src={logo} alt="" />
       </div>
-      <div className=" hidden sm:flex justify-between gap-8">
-        {navLinks.map((link) => (
-          <div className="">
-            <span className="cursor-pointer hover:text-blue-800 font-semibold">
-              {link.name}
-            </span>
+      <div className="hidden sm:flex justify-between gap-8">
+        {navLinks.map((menu) => (
+          <div key={menu.name}>
+            <Link
+              to={menu.link}
+              className="cursor-pointer hover:text-blue-800 font-semibold"
+            >
+              {menu.name}
+            </Link>
           </div>
         ))}
       </div>
-      <div className=" hidden sm:flex  justify-between gap-4">
-        <button className="btn ">Log In</button>
+      <div className=" hidden sm:flex  justify-between items-center gap-4">
+        {/* <button className="btn ">Log In</button> */}
+        {user?.email ? (
+          <h5>{user.displayName}</h5>
+        ) : (
+          <Link to="/login" className="btn">
+            Log In
+          </Link>
+        )}
+        {user?.email && (
+          <h5 className="btn cursor-pointer" onClick={() => logOut(navigate)}>
+            Log Out
+          </h5>
+        )}
       </div>
 
       <Menu as="div" className="sm:hidden">
@@ -38,7 +56,7 @@ const Navigation = () => {
           className="absolute top-[10vh] right-[18%] text-right cursor-pointer"
         >
           {navLinks.map((link) => (
-            <Menu.Item>
+            <Menu.Item key={link.name}>
               {({ active }) => (
                 <button
                   className={`${
