@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 const bookingList = [
   {
@@ -45,6 +46,16 @@ const bookingList = [
   },
 ];
 const BookingList = () => {
+  const { user } = useAuth();
+  const [orderList, setOrderList] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/myorders/${user.email}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setOrderList(data);
+      });
+  }, []);
   return (
     <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 ">
       {bookingList?.map((list) => (

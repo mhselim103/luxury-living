@@ -27,6 +27,25 @@ https://i.ibb.co/3B30jqG/Ellipse-90.png
 https://i.ibb.co/KqzbcLT/Ellipse-91.png
 https://i.ibb.co/sVTyS8B/Ellipse-92.png
 https://i.ibb.co/MSqKvY7/hero-section.png */
+
+  /* https://i.ibb.co/mbL3HbT/affordable-1.png
+https://i.ibb.co/YRgKCT0/apartment-1.png
+https://i.ibb.co/RCxkGdv/cart.png
+https://i.ibb.co/gTsQs5g/cloud-upload-outline-1.png
+https://i.ibb.co/7R4YLYb/credit-card-1.png
+https://i.ibb.co/hX4cnRG/fb.png
+https://i.ibb.co/K6q2vr6/google.png
+https://i.ibb.co/BGYmB2k/Group-1360.png
+https://i.ibb.co/jzNGV7b/Group-33040.png
+https://i.ibb.co/tznmgSs/insta.png
+https://i.ibb.co/Y4grdYc/lessee-1.png
+https://i.ibb.co/310fGGX/linkedin.png
+https://i.ibb.co/GJHN2yq/location.png
+https://i.ibb.co/0VnjC8g/logo.png
+https://i.ibb.co/MZ3pDhB/map-pin-2-fill.png
+https://i.ibb.co/xz36s3G/message.png
+https://i.ibb.co/ZK0y1H7/paypal.png
+https://i.ibb.co/djvhfRN/youtube.png */
   return (
     <div className="bg-body-0">
       <AuthProvider>
@@ -50,6 +69,7 @@ https://i.ibb.co/MSqKvY7/hero-section.png */
             <Route path="testimonial" element={<Testimonial />} />
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
+            {/* <Route path="book" element={<Book />} /> */}
             <Route path="dashboard" element={<Dashboard />}>
               <Route path="orders" element={<Orders />} />
               <Route path="book" element={<Book />} />

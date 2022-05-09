@@ -6,7 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import logo from "../../Icon/logo.png";
 // bg-[#F4F7FC]
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
   const [heading, setHeading] = useState("Dashboard");
   return (
     <div className="dashboard flex bg-[#F4F7FC]">
@@ -41,40 +41,42 @@ const Dashboard = () => {
               <MdRateReview /> Review
             </Link>
           </div>
-          <div className="flex flex-col gap-2">
-            <Link
-              to="orders"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Orders")}
-            >
-              {" "}
-              <AiOutlineShoppingCart /> Orders List
-            </Link>
-            <Link
-              to="addservice"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Add Service")}
-            >
-              {" "}
-              <AiOutlineShop /> Add Service
-            </Link>
-            <Link
-              to="admin"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Make Admin")}
-            >
-              {" "}
-              <MdRateReview /> Make Admin
-            </Link>
-            <Link
-              to="manageservice"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Manage Services")}
-            >
-              {" "}
-              <MdRateReview /> Manage Services
-            </Link>
-          </div>
+          {user && admin && (
+            <div className="flex flex-col gap-2">
+              <Link
+                to="orders"
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => setHeading("Orders")}
+              >
+                {" "}
+                <AiOutlineShoppingCart /> Orders List
+              </Link>
+              <Link
+                to="addservice"
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => setHeading("Add Service")}
+              >
+                {" "}
+                <AiOutlineShop /> Add Service
+              </Link>
+              <Link
+                to="admin"
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => setHeading("Make Admin")}
+              >
+                {" "}
+                <MdRateReview /> Make Admin
+              </Link>
+              <Link
+                to="manageservice"
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => setHeading("Manage Services")}
+              >
+                {" "}
+                <MdRateReview /> Manage Services
+              </Link>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex-1">

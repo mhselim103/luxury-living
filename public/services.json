@@ -1,0 +1,20 @@
+[
+  {
+    "heading": "Showroom Design",
+    "img": "https://i.ibb.co/YRgKCT0/apartment-1.png",
+    "price": "589",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, quae."
+  },
+  {
+    "heading": "Showroom Design",
+    "img": "https://i.ibb.co/YRgKCT0/apartment-1.png",
+    "price": "689",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, quae."
+  },
+  {
+    "heading": "Showroom Design",
+    "img": "https://i.ibb.co/YRgKCT0/apartment-1.png",
+    "price": "789",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, quae."
+  }
+]

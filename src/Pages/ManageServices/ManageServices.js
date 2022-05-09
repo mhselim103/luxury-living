@@ -1,11 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import { rows } from "../../TableData";
 
-const ManageServices = () => {
+export default function ManageServices() {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
-    <div>
-      <h1>Manage Service</h1>
-    </div>
+    <Paper sx={{ width: "100%", overflow: "hidden" }}>
+      <TableContainer sx={{ maxHeight: 500, maxWidth: "100%" }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              <TableCell style={{ minWidth: 170 }}>Service</TableCell>
+              <TableCell style={{ minWidth: 170 }}>Image</TableCell>
+              <TableCell style={{ minWidth: 170 }}>Price</TableCell>
+              <TableCell style={{ minWidth: 170 }}>Manage</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow hover key={row.price}>
+                    <TableCell style={{ minWidth: 170 }}>
+                      {row.heading}
+                    </TableCell>
+                    <TableCell style={{ minWidth: 170 }}>{row.image}</TableCell>
+                    <TableCell style={{ minWidth: 170 }}>{row.price}</TableCell>
+                    <TableCell style={{ minWidth: 170 }}>
+                      {row.action}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 15, 20, 25]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
   );
-};
-
-export default ManageServices;
+}

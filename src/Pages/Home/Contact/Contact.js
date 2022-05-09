@@ -35,7 +35,7 @@ const Contact = () => {
           </span>
         </div>
         <div className="">
-          <form ref={form} onSubmit={handleSubmit(sendEmail)}>
+          <form ref={form} className="form" onSubmit={handleSubmit(sendEmail)}>
             <input
               type="text"
               {...register("name")}
