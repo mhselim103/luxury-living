@@ -8,11 +8,13 @@ const Dashboard = () => {
   const { user, admin } = useAuth();
   const [heading, setHeading] = useState("Dashboard");
   return (
-    <div className="dashboard flex bg-[#F4F7FC] relative top-0 bottom-0">
-      <div className="h-[100vh] w-52 sticky top-0 left-0 bg-white">
+    <div className="dashboard flex bg-[#F4F7FC] relative top-[-10vh]">
+      <div className="h-[100vh] w-52 sticky inset-0 bg-white">
         <div className="ml-4 mt-4">
           <div className="mb-12">
-            <img className="w-[50%]" src={logo} alt="" />
+            <Link to="/">
+              <img className="w-[50%]" src={logo} alt="" />
+            </Link>
           </div>
 
           {admin ? (

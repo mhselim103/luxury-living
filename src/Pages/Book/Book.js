@@ -9,7 +9,7 @@ const Book = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${id}`)
+    fetch(`https://fast-coast-69202.herokuapp.com/services/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setService(data);
@@ -17,7 +17,7 @@ const Book = () => {
   }, []);
   const onSubmit = (book) => {
     console.log(book);
-    fetch("http://localhost:5000/orders", {
+    fetch("https://fast-coast-69202.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

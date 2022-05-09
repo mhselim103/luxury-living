@@ -17,7 +17,7 @@ const Navigation = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
   return (
-    <div className=" h-[10vh] mx-8 sm:mx-0 relative top-1 flex justify-between  sm:justify-around items-center bg-[#F6F6F6]">
+    <div className=" h-[10vh] mx-8 sm:mx-0 sticky top-0 flex justify-between  sm:justify-around items-center bg-[#F6F6F6]">
       <div>
         <img className="w-20 sm:w-28" src={logo} alt="" />
       </div>
@@ -36,7 +36,7 @@ const Navigation = () => {
       <div className=" hidden sm:flex  justify-between items-center gap-4">
         {/* <button className="btn ">Log In</button> */}
         {user?.email ? (
-          <h5>{user.displayName}</h5>
+          <Link to="Dashboard">Dashboard</Link>
         ) : (
           <Link to="/login" className="btn">
             Log In

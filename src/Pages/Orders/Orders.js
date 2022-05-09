@@ -12,7 +12,7 @@ import { ordersData, rows } from "../../TableData";
 export default function ManageServices() {
   const [orderList, setOrderList] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders`)
+    fetch(`https://fast-coast-69202.herokuapp.com/orders`)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);

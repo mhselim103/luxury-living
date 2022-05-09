@@ -12,7 +12,7 @@ import { rows } from "../../TableData";
 export default function ManageServices() {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://fast-coast-69202.herokuapp.com/services")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);

@@ -51,7 +51,7 @@ https://i.ibb.co/djvhfRN/youtube.png */
     <div className="bg-body-0">
       <AuthProvider>
         <BrowserRouter>
-          {/* <Navigation /> */}
+          <Navigation />
           <Routes>
             <Route path="/*" element={<Navigate to="home" />} />
             <Route path="home" element={<Home />} />
@@ -78,7 +78,7 @@ https://i.ibb.co/djvhfRN/youtube.png */
               <Route path="review" element={<Review />} />
             </Route>
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </BrowserRouter>
       </AuthProvider>
     </div>

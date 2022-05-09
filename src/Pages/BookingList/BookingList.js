@@ -5,7 +5,7 @@ const BookingList = () => {
   const { user } = useAuth();
   const [orderList, setOrderList] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myorders/${user.email}`)
+    fetch(`https://fast-coast-69202.herokuapp.com/myorders/${user.email}`)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
