@@ -4,44 +4,18 @@ import { MdRateReview } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../Icon/logo.png";
-// bg-[#F4F7FC]
 const Dashboard = () => {
   const { user, admin } = useAuth();
   const [heading, setHeading] = useState("Dashboard");
   return (
-    <div className="dashboard flex bg-[#F4F7FC]">
+    <div className="dashboard flex bg-[#F4F7FC] relative top-0 bottom-0">
       <div className="h-[100vh] w-52 sticky top-0 left-0 bg-white">
         <div className="ml-4 mt-4">
           <div className="mb-12">
             <img className="w-[50%]" src={logo} alt="" />
           </div>
-          <div className="flex flex-col gap-2">
-            <Link
-              to="book"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Book")}
-            >
-              {" "}
-              <AiOutlineShoppingCart /> Book
-            </Link>
-            <Link
-              to="myorders"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Booking List")}
-            >
-              {" "}
-              <AiOutlineShop /> Booking List
-            </Link>
-            <Link
-              to="review"
-              className="flex items-center gap-1 cursor-pointer"
-              onClick={() => setHeading("Review")}
-            >
-              {" "}
-              <MdRateReview /> Review
-            </Link>
-          </div>
-          {user && admin && (
+
+          {admin ? (
             <div className="flex flex-col gap-2">
               <Link
                 to="orders"
@@ -74,6 +48,25 @@ const Dashboard = () => {
               >
                 {" "}
                 <MdRateReview /> Manage Services
+              </Link>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2">
+              <Link
+                to="myorders"
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => setHeading("My Orders")}
+              >
+                {" "}
+                <AiOutlineShop /> My Orders
+              </Link>
+              <Link
+                to="review"
+                className="flex items-center gap-1 cursor-pointer"
+                onClick={() => setHeading("Review")}
+              >
+                {" "}
+                <MdRateReview /> Review
               </Link>
             </div>
           )}

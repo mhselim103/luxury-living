@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,6 +10,14 @@ import TableRow from "@mui/material/TableRow";
 import { rows } from "../../TableData";
 
 export default function ManageServices() {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/services")
+      .then((response) => response.json())
+      .then((data) => {
+        setServices(data);
+      });
+  }, []);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -35,7 +43,7 @@ export default function ManageServices() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {services
               ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
@@ -43,10 +51,12 @@ export default function ManageServices() {
                     <TableCell style={{ minWidth: 170 }}>
                       {row.heading}
                     </TableCell>
-                    <TableCell style={{ minWidth: 170 }}>{row.image}</TableCell>
+                    <TableCell style={{ minWidth: 170 }}>
+                      <img className="w-10" src={row.image} alt="" />
+                    </TableCell>
                     <TableCell style={{ minWidth: 170 }}>{row.price}</TableCell>
                     <TableCell style={{ minWidth: 170 }}>
-                      {row.action}
+                      <button className="btn bg-red-700">Delete Service</button>
                     </TableCell>
                   </TableRow>
                 );

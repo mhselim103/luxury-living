@@ -15,6 +15,7 @@ import Testimonial from "./Pages/Home/Testimonial/Testimonial";
 import MakeAdmin from "./Pages/MakeAdmin/MakeAdmin";
 import ManageServices from "./Pages/ManageServices/ManageServices";
 import Orders from "./Pages/Orders/Orders";
+import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Review from "./Pages/Review/Review";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
@@ -49,15 +50,6 @@ https://i.ibb.co/djvhfRN/youtube.png */
   return (
     <div className="bg-body-0">
       <AuthProvider>
-        {/* <Navigation /> */}
-        {/* <Hero />
-      <Projects />
-      <Service />
-      <Testimonial />
-      <Contact />
-      <Footer /> */}
-        {/* <LogIn /> */}
-        {/* <SignUp /> */}
         <BrowserRouter>
           {/* <Navigation /> */}
           <Routes>
@@ -69,10 +61,16 @@ https://i.ibb.co/djvhfRN/youtube.png */
             <Route path="testimonial" element={<Testimonial />} />
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
-            {/* <Route path="book" element={<Book />} /> */}
-            <Route path="dashboard" element={<Dashboard />}>
+            <Route
+              path="dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            >
+              <Route path="book/:id" element={<Book />} />
               <Route path="orders" element={<Orders />} />
-              <Route path="book" element={<Book />} />
               <Route path="myorders" element={<BookingList />} />
               <Route path="admin" element={<MakeAdmin />} />
               <Route path="addservice" element={<AddService />} />

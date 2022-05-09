@@ -17,7 +17,7 @@ const Review = () => {
           alert("Ordered Successfully");
         }
       });
-    // reset();
+    reset();
   };
   return (
     <div>
