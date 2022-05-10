@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Service = () => {
-  const [services, setServices] = useState([]);
+  const [allServices, setServices] = useState([]);
   useEffect(() => {
     fetch("https://fast-coast-69202.herokuapp.com/services")
       .then((response) => response.json())
@@ -20,7 +20,7 @@ const Service = () => {
         </span>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        {services?.map((service) => (
+        {allServices?.map((service) => (
           <div key={service._id} className="card w-[300px] cursor-pointer">
             <img className="w-20 mx-auto" src={service.image} alt="" />
             <div className="py-4 flex flex-col items-center gap-2">

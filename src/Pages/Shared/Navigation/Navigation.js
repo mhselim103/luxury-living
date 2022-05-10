@@ -1,7 +1,6 @@
 import React from "react";
 import { Menu } from "@headlessui/react";
 import { MdMenu } from "react-icons/md";
-// import { AiOutlineCloseCircle } from "react-icons/ai";
 import logo from "../../../Icon/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
@@ -34,7 +33,6 @@ const Navigation = () => {
         ))}
       </div>
       <div className=" hidden sm:flex  justify-between items-center gap-4">
-        {/* <button className="btn ">Log In</button> */}
         {user?.email ? (
           <Link to="Dashboard">Dashboard</Link>
         ) : (
