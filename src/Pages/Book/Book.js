@@ -9,7 +9,7 @@ const Book = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`https://fast-coast-69202.herokuapp.com/services/${id}`)
+    fetch(`https://luxury-living.onrender.com/services/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setService(data);
@@ -17,7 +17,7 @@ const Book = () => {
   }, []);
   const onSubmit = (book) => {
     console.log(book);
-    fetch("https://fast-coast-69202.herokuapp.com/orders", {
+    fetch("https://luxury-living.onrender.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

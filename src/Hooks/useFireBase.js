@@ -92,7 +92,7 @@ const useFirebase = () => {
   // save user to database
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://fast-coast-69202.herokuapp.com/users", {
+    fetch("https://luxury-living.onrender.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -120,7 +120,7 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`https://fast-coast-69202.herokuapp.com/users/${user?.email}`)
+    fetch(`https://luxury-living.onrender.com/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.admin);
