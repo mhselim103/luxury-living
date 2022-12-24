@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 const Service = () => {
   const [allServices, setServices] = useState([]);
   useEffect(() => {
-    fetch("https://fast-coast-69202.herokuapp.com/services")
+    fetch("https://luxury-living.onrender.com/services")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
       });
   }, []);
   return (
-    <div className="text-center my-20">
-      <div className="flex flex-col justify-center items-center my-8">
+    <div className="my-20 text-center">
+      <div className="flex flex-col items-center justify-center my-8">
         <span className="text-[#251D58]">Service</span>
         <span className="text-[#1F1632] font-bold text-2xl">
           We're an agency tailored to all <br /> clients' needs that always
           delivers
         </span>
       </div>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
         {allServices?.map((service) => (
           <div key={service._id} className="card w-[300px] cursor-pointer">
             <img className="w-20 mx-auto" src={service.image} alt="" />
-            <div className="py-4 flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-2 py-4">
               <span className="font-semibold text-[#1F1632] text-lg">
                 {service.heading}
               </span>
@@ -34,7 +34,7 @@ const Service = () => {
                 {service.description}
               </span>
               <Link to={`/dashboard/book/${service._id}`}>
-                <button className=" text-blue-900  w-28 rounded-full hover:outline hover:outline-offset-0">
+                <button className="text-blue-900 rounded-full  w-28 hover:outline hover:outline-offset-0">
                   Book Now
                 </button>
               </Link>
@@ -42,7 +42,7 @@ const Service = () => {
           </div>
         ))}
       </div>
-      <button className="btn mt-16">Explore More</button>
+      <button className="mt-16 btn">Explore More</button>
     </div>
   );
 };

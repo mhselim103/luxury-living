@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,12 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { ordersData, rows } from "../../TableData";
+import React, { useEffect, useState } from "react";
+import { rows } from "../../TableData";
 
 export default function ManageServices() {
   const [orderList, setOrderList] = useState([]);
   useEffect(() => {
-    fetch(`https://fast-coast-69202.herokuapp.com/orders`)
+    fetch(`https://luxury-living.onrender.com/orders`)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
